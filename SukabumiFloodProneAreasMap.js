@@ -1,16 +1,13 @@
 //Import data
-var area_banjir = ee.FeatureCollection("projects/ee-diananggraini2203/assets/AreaBanjir_2024");
-var area_banjir2 = ee.FeatureCollection("projects/ee-diananggraini2203/assets/AreaBanjir_2025");
 var sukabumi = ee.FeatureCollection("projects/ee-diananggraini2203/assets/Kab_Sukabumi");
 var sukabumi_polyline = ee.FeatureCollection("projects/ee-diananggraini2203/assets/kab_garis");
-
-
-//Load dataset
 var river = ee.Image("projects/ee-diananggraini2203/assets/sungai_polygon_pl").clip(sukabumi);
 var curah_hujan = ee.Image("projects/ee-diananggraini2203/assets/curah_hujan_sukabumi").clip(sukabumi);
+var fabdem = ee.Image("projects/ee-diananggraini2203/assets/FABDEM_SK").clip(sukabumi);
+
+//Load dataset
 var lulc = ee.ImageCollection("ESA/WorldCover/v200").mosaic().select('Map').clip(sukabumi);
 var soil = ee.Image("OpenLandMap/SOL/SOL_TEXTURE-CLASS_USDA-TT_M/v02").select('b0').clip(sukabumi);
-var fabdem = ee.Image("projects/ee-diananggraini2203/assets/FABDEM_SK").clip(sukabumi);
 
 
 //Membuat hillshade
