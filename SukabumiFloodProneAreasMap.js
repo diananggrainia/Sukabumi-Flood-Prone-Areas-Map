@@ -10,6 +10,7 @@ var lulc = ee.ImageCollection("ESA/WorldCover/v200").mosaic().select('Map').clip
 var soil = ee.Image("OpenLandMap/SOL/SOL_TEXTURE-CLASS_USDA-TT_M/v02").select('b0').clip(sukabumi);
 
 
+
 //Membuat hillshade
 var hillshade = ee.Terrain.hillshade(fabdem).clip(sukabumi);
 
@@ -256,12 +257,12 @@ controlPanel.add(ui.Label({
   value: 'Parameter Kerawanan Banjir',
   style: { fontWeight: 'bold', fontSize: '12px', margin: '4px' }
 }));
-createLayerCheckbox('Penggunaan Lahan', lulcClass, visParamsLULC);
-createLayerCheckbox('Tanah', soilClass, visParamsSoil);
-createLayerCheckbox('Ketinggian Permukaan', fabdemClass, visParamsElevation);
-createLayerCheckbox('Kemiringan Lereng', slopeClass, visParamsSlope);
-createLayerCheckbox('Jarak Sungai', bufferClass, visParamsBuffer);
-createLayerCheckbox('Curah Hujan', rainfallClass2, visParamsRainfall);
+createLayerCheckbox('Penggunaan Lahan terhadap Banjir', lulcClass, visParamsLULC);
+createLayerCheckbox('Tanah terhadap Banjir', soilClass, visParamsSoil);
+createLayerCheckbox('Ketinggian Permukaan terhadap Banjir', fabdemClass, visParamsElevation);
+createLayerCheckbox('Kemiringan Lereng terhadap Banjir', slopeClass, visParamsSlope);
+createLayerCheckbox('Jarak Sungai terhadap Banjir', bufferClass, visParamsBuffer);
+createLayerCheckbox('Curah Hujan terhadap Banjir', rainfallClass2, visParamsRainfall);
 controlPanel.add(ui.Label({
   value: 'Kerawanan Banjir',
   style: { fontWeight: 'bold', fontSize: '12px', margin: '4px' }
